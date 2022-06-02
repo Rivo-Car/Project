@@ -12,8 +12,6 @@ class CreateCategories < ActiveRecord::Migration[7.0]
     Category.create :title => "Veterinary"
   end
 
-  
-
   def self.down
     drop_table :categories
   end

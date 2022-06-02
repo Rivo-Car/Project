@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_01_120543) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_02_083840) do
+  create_table "categories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "title", limit: 40, null: false
+    t.timestamp "created_at", null: false
+  end
+
   create_table "doctors", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", limit: 40, null: false
     t.string "title", null: false
@@ -22,12 +27,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_01_120543) do
     t.string "name", limit: 40, null: false
     t.integer "patient_id"
     t.timestamp "created_at"
-  end
-
-  create_table "categories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "title", limit: 40, null: false
-    t.integer "category_id"
-    t.timestamp "created_at", null: false
   end
 
 end
