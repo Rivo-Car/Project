@@ -1,9 +1,10 @@
 class CreateCategories < ActiveRecord::Migration[7.0]
   def self.up
     create_table :categories do |t|
+      self.down
       t.column :title, :string, :limit =>40, :null => false
       t.column :created_at, :timestamp, :null => false
-    end
+      end
 
     Category.create :title => "Pediatrics"
     Category.create :title => "Surgery"
