@@ -23,7 +23,7 @@ class CategoryController < ApplicationController
   end
 
   def category_params
-    params.require(categories).permit(:title)
+    params.fetch(:category, {}).permit(:title)
   end
 
   def edit

@@ -3,4 +3,10 @@ class Patient < ApplicationRecord
 
   validates_uniqueness_of :name
   validates :name, format: /\w+, \w+/
+
+  def update_attributes(attributes)
+    self.attributes = attributes
+    save
+  end
+  
 end

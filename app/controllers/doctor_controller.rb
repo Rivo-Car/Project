@@ -13,7 +13,7 @@ class DoctorController < ApplicationController
   end
 
   def doctor_params
-    params.require(:doctors).permit(:title, :name, )
+    params.fetch(:doctor, {}).permit(:title, :name)
   end
 
   def create
@@ -22,14 +22,14 @@ class DoctorController < ApplicationController
     if @doctor.save
       redirect_to :action => 'list'
     else
-      @subjects = Subject.all
+      @categories = Category.all
       render :action => 'new'
     end
   end
 
   def edit
     @doctor = doctor.find(params[:id])
-    @subjects = Subject.all
+    @categories = Category.all
   end
 
   def doctor_param
@@ -39,10 +39,10 @@ class DoctorController < ApplicationController
   def update
     @doctor = doctor.find(params[:id])
 
-    if @doctor.update_attributes(doctor_param)
+    if @doctor.update_attributes(doctor_params)
       redirect_to :action => 'show', :id => @doctor
     else
-      @subjects = Subject.all
+      @categories = Category.all
       render :action => 'edit'
     end
   end
