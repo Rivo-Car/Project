@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :patients
   get 'patient/list'
   get 'patient/new'
   post 'patient/create'
@@ -26,8 +27,13 @@ Rails.application.routes.draw do
   get 'admin/edit'
   get 'admin/delete'
   get 'admin/update'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  get 'category/list'
+  get 'category/new'
+  post 'category/create'
+  patch 'category/update'
+  get 'category/list'
+  get 'category/show'
+  get 'category/edit'
+  get 'category/delete'
+  get 'category/update'
 end
