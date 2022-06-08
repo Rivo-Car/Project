@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-class AddDeviseToPatients < ActiveRecord::Migration[7.0]
-  def self.up
-    change_table :patients do |t|
+class DeviseCreatePatients < ActiveRecord::Migration[7.0]
+  def change
+    create_table :patients do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
@@ -33,19 +33,12 @@ class AddDeviseToPatients < ActiveRecord::Migration[7.0]
       # t.datetime :locked_at
 
 
-      # Uncomment below if timestamps were not included in your original model.
-      # t.timestamps null: false
+      t.timestamps null: false
     end
 
     add_index :patients, :email,                unique: true
     add_index :patients, :reset_password_token, unique: true
     # add_index :patients, :confirmation_token,   unique: true
     # add_index :patients, :unlock_token,         unique: true
-  end
-
-  def self.down
-    # By default, we don't want to make any assumption about how to roll back a migration when your
-    # model already existed. Please edit below which fields you would like to remove in this migration.
-    raise ActiveRecord::IrreversibleMigration
   end
 end

@@ -1,14 +1,6 @@
 Rails.application.routes.draw do
   devise_for :patients
-  get 'patient/list'
-  get 'patient/new'
-  post 'patient/create'
-  patch 'patient/update'
-  get 'patient/list'
-  get 'patient/show'
-  get 'patient/edit'
-  get 'patient/delete'
-  get 'patient/update'
+  devise_for :admins
   get 'doctor/list'
   get 'doctor/new'
   post 'doctor/create'
