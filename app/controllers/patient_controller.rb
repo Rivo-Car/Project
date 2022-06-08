@@ -30,7 +30,7 @@ class PatientController < ApplicationController
   end
 
   def patient_param
-    params.fetch(:patient, {}).permit(:title, :name, :subject_id, :description)
+    params.fetch(:patient, {}).permit( :name, :password, :email)
   end
 
   def update
